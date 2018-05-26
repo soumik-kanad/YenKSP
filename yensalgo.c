@@ -56,6 +56,7 @@ path subPath(int graph[V][V], path *P, int startidx,int endidx)
   for(int i=0;i<endidx-startidx+1;i++)
     q.pathlist[i]=P->pathlist[i+startidx];
   q.pathlen=pathLenth(graph,q.pathlist,0,endidx-startidx);
+  return q;
 }
 
 //Prints paths and pth length
@@ -279,7 +280,6 @@ path * yenksp(int graph[V][V], int src, int dest, int K)
       for(int z=0;z<V;z++)
         old_graph[y][z]=graph[y][z];
 
-
   //k-loop
   for(int k=1;k<=K;k++)
   {
@@ -396,7 +396,13 @@ int main()
                         {0, 0, 2, 0, 0, 0, 6, 7, 0}
                     };
  
-    path P=dijkstra(graph, 0, 8);
-    printPath(P);
+    //path P=dijkstra(graph, 0, 8);
+    //printPath(P);
+
+    int K=2;
+    path * A = yenksp(graph, 0, 8, K);
+    for(int i=0;i<=K;i++)
+      printPath(A[i]);
+
     return 0;
 }
