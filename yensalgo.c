@@ -198,7 +198,7 @@ path dijkstra(int graph[V][V], int src, int dest)
     // INFINITE and stpSet[] as false
     for (int i = 0; i < V; i++)
     {
-        parent[0] = -1;
+        parent[i] = -1;
         dist[i] = INT_MAX;
         sptSet[i] = false;
     }
@@ -396,13 +396,13 @@ int main()
                         {0, 0, 2, 0, 0, 0, 6, 7, 0}
                     };
  
-    //path P=dijkstra(graph, 0, 8);
+    //path P=dijkstra(graph, 2, 8);
     //printPath(P);
 
     int K=2;
     path * A = yenksp(graph, 0, 8, K);
     for(int i=0;i<=K;i++)
-      printPath(A[i]);
+     printPath(A[i]);
 
     return 0;
 }
